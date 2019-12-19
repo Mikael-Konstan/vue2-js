@@ -1,0 +1,70 @@
+<template>
+  <div class="hello">
+    <p class="tile">wangeditor</p>
+    <p>不支持IE8 无外部依赖 支持内网</p>
+    <div class="Editor">
+      <Editor :editorContent='editorContent' @EditorMsg='getEditor'></Editor>
+      <div class="showMsg">
+        <div class="showMsg1" ref="showMsg1">{{ editorContent }}</div>
+        <div class="showMsg2" ref="showMsg2">{{ editorContent }}</div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Editor from "./../components/Editor";
+export default {
+  name: "pageOne",
+  data() {
+    return {
+      editorContent: "<p><strong>初始化 / 回显值</strong> : testPageOne</p>"
+    };
+  },
+  mounted() {
+    // console.log(window)
+  },
+  components: {
+    Editor
+  },
+  methods: {
+    getEditor(txt) {
+      document.getElementsByClassName('showMsg1')[0].innerHTML = txt
+      document.getElementsByClassName('showMsg2')[0].innerText = txt
+    }
+  }
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+.Editor {
+  width: 600px;
+  height: 300px;
+}
+.showMsg{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+}
+.showMsg div{
+  border: 1px solid #666;
+  width: 400px;
+  height: 150px;
+}
+</style>
