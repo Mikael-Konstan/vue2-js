@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import axios form 'axios'
 export default {
   name: 'pageTwo',
   data() {
@@ -30,10 +31,10 @@ export default {
 
   },
   methods: {
-    uploadPic() {
+    uploadPic() { 
       this.formData = new FormData();
       this.formData.append('picture', this.$refs.upPicture)
-      this.$axios
+      // this.$axios
     }
   }
 }
