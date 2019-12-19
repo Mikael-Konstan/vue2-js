@@ -19,19 +19,17 @@
 </template>
 
 <script>
-import axios form 'axios'
 export default {
   name: 'pageTwo',
-  data() {
+  data () {
     return {
       formData: ''
     }
   },
   mounted () {
-
   },
   methods: {
-    uploadPic() { 
+    uploadPic () {
       this.formData = new FormData();
       this.formData.append('picture', this.$refs.upPicture)
       // this.$axios
