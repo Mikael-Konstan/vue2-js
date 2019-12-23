@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Editor from "./../components/wangEditor";
+import Editor from "./../components/wangEditor.vue";
 export default {
   name: "Editor",
   data() {
