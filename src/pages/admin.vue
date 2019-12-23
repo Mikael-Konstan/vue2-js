@@ -18,7 +18,7 @@
               <i class="el-icon-s-home"></i>
               <span slot="title">首页</span>
             </el-menu-item>
-            <el-menu-item index="/Editor" v-on:click="pageOne">
+            <el-menu-item index="/Editor" v-on:click="Editor">
               <i class="el-icon-location"></i>
               <span slot="title">Editor</span>
             </el-menu-item>
@@ -55,7 +55,7 @@ export default {
     idx() {
       this.$router.push('/dashboard')
     },
-    pageOne(){
+    Editor(){
       this.$router.push('/Editor')
     },
     pageTwo() {
