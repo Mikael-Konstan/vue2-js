@@ -3,7 +3,7 @@
     <p class="tile">wangeditor</p>
     <p>不支持IE8 无外部依赖 支持内网</p>
     <div class="Editor">
-      <Editor :editorContent='editorContent' @EditorMsg='getEditor'></Editor>
+      <wangEditor :editorContent='editorContent' @EditorMsg='getEditor'></wangEditor>
       <div class="showMsg">
         <div class="showMsg1" ref="showMsg1">{{ editorContent }}</div>
         <div class="showMsg2" ref="showMsg2">{{ editorContent }}</div>
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import Editor from "./../components/wangEditor.vue";
+import wangEditor from "./../components/wangEditor.vue";
 export default {
   name: "Editor",
   data() {
@@ -25,7 +25,7 @@ export default {
     // console.log(window)
   },
   components: {
-    Editor
+    wangEditor
   },
   methods: {
     getEditor(txt) {

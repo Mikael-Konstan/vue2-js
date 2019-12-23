@@ -18,23 +18,23 @@
               <i class="el-icon-s-home"></i>
               <span slot="title">首页</span>
             </el-menu-item>
-            <el-menu-item index="/Editor" v-on:click="Editor">
+            <el-menu-item index="/Editor">
               <i class="el-icon-location"></i>
               <span slot="title">Editor</span>
             </el-menu-item>
-            <el-menu-item index="/pageTwo" v-on:click='pageTwo'>
+            <el-menu-item index="/pageTwo">
               <i class="el-icon-menu"></i>
               <span slot="title">pageTwo</span>
             </el-menu-item>
-            <el-menu-item index="/pageThree" v-on:click='pageThree'>
+            <el-menu-item index="/pageThree">
               <i class="el-icon-document"></i>
               <span slot="title">pageThree</span>
             </el-menu-item>
-            <el-menu-item index="/pageFour" v-on:click='pageFour'>
+            <el-menu-item index="/pageFour">
               <i class="el-icon-setting"></i>
               <span slot="title">pageFour</span>
             </el-menu-item>
-            <el-menu-item index="/pageFive" v-on:click='pageFive'>
+            <el-menu-item index="/pageFive">
               <i class="el-icon-setting"></i>
               <span slot="title">pageFive</span>
             </el-menu-item>
@@ -55,21 +55,21 @@ export default {
     idx() {
       this.$router.push('/dashboard')
     },
-    Editor(){
-      this.$router.push('/Editor')
-    },
-    pageTwo() {
-      this.$router.push('/pageTwo')
-    },
-    pageThree(){
-      this.$router.push('/pageThree')
-    },
-    pageFour(){
-      this.$router.push('/pageFour')
-    },
-    pageFive(){
-      this.$router.push('/pageFive')
-    }
+    // Editor(){
+    //   this.$router.push('/Editor')
+    // },
+    // pageTwo() {
+    //   this.$router.push('/pageTwo')
+    // },
+    // pageThree(){
+    //   this.$router.push('/pageThree')
+    // },
+    // pageFour(){
+    //   this.$router.push('/pageFour')
+    // },
+    // pageFive(){
+    //   this.$router.push('/pageFive')
+    // }
   }
 };
 </script>
