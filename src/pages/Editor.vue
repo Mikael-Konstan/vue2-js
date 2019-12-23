@@ -29,6 +29,7 @@ export default {
   mounted() {
     // console.log(window)
     this.getIntMsg()
+    this.testGet()
   },
   components: {
     wangEditor
@@ -38,11 +39,22 @@ export default {
       axios.post('http://localhost:7594/postTest',{
         test: '7594'
       }).then((res) => {
-        console.log(res)
+        // console.log(res)
         this.editorContent = res.data.data
         this.editorContentFlag = true
       }).catch(err => {
         console.log(err)
+      })
+    },
+    testGet() {
+      axios.get('http://localhost:7594/getTest?test=888',{
+        test: '7594'
+      }).then((res) => {
+        // console.log(res)
+        alert('ok', res)
+      }).catch(err => {
+        console.log(err)
+        alert('error', err)
       })
     },
     getEditor(txt) {
