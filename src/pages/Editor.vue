@@ -13,9 +13,9 @@
 </template>
 
 <script>
-import Editor from "./../components/Editor";
+import Editor from "./../components/wangEditor";
 export default {
-  name: "pageOne",
+  name: "Editor",
   data() {
     return {
       editorContent: "<p><strong>初始化 / 回显值</strong> : testPageOne</p>"

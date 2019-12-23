@@ -18,9 +18,9 @@
               <i class="el-icon-s-home"></i>
               <span slot="title">首页</span>
             </el-menu-item>
-            <el-menu-item index="/pageOne" v-on:click="pageOne">
+            <el-menu-item index="/Editor" v-on:click="pageOne">
               <i class="el-icon-location"></i>
-              <span slot="title">wangeditor</span>
+              <span slot="title">Editor</span>
             </el-menu-item>
             <el-menu-item index="/pageTwo" v-on:click='pageTwo'>
               <i class="el-icon-menu"></i>
@@ -56,7 +56,7 @@ export default {
       this.$router.push('/dashboard')
     },
     pageOne(){
-      this.$router.push('/pageOne')
+      this.$router.push('/Editor')
     },
     pageTwo() {
       this.$router.push('/pageTwo')

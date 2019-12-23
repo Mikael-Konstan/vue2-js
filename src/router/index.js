@@ -20,13 +20,12 @@ const router = new vueRouter({
                 {
                     path: '/dashboard',
                     name: 'dashboard',
-                    // redirect: '/pageOne',
                     component: () => import('./../pages/dashboard.vue')
                 },
                 {
-                    path: '/pageOne',
-                    name: 'pageOne',
-                    component: () => import('./../pages/pageOne.vue'),
+                    path: '/Editor',
+                    name: 'Editor',
+                    component: () => import('./../pages/Editor.vue'),
                 },
                 {
                     path: '/pageTwo',

@@ -7,7 +7,7 @@
 <script>
 import E from "wangeditor";
 export default {
-  name: "editor",
+  name: "wangEditor",
   props: ['editorContent'],
   data() {
     return {
