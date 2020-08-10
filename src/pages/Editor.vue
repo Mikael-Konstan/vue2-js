@@ -50,11 +50,11 @@ export default {
       axios.get('http://localhost:7594/getTest?test=888',{
         test: '7594'
       }).then((res) => {
-        // console.log(res)
-        alert('ok', res)
+        console.log(res)
+        // alert('ok', res)
       }).catch(err => {
         console.log(err)
-        alert('error', err)
+        // alert('error', err)
       })
     },
     getEditor(txt) {

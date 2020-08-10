@@ -42,9 +42,17 @@ const router = new vueRouter({
                     name: 'pageFour',
                     component: () => import('./../pages/pageFour.vue'),
                 },
+            ]
+        },
+        {
+            path: '/pageFive',
+            name: 'pageFive',
+            redirect: '/pageFive/index',
+            component: ()=> import('./../pages/admin.vue'),
+            children:[
                 {
-                    path: '/pageFive',
-                    name: 'pageFive',
+                    path: 'index',
+                    name: 'pageFive/index',
                     component: () => import('./../pages/pageFive.vue'),
                 }
             ]

@@ -7,12 +7,20 @@
     </p>
     <h3>Installed CLI Plugins</h3>
     <h1 class="tile">pageFour</h1>  
+    <HuGlobal></HuGlobal> 
+    <hu-global></hu-global>
+    <nameTest></nameTest>
+    <Name-Test></Name-Test>
   </div>
 </template>
 
 <script>
+import NameTest from './../components/nameTest'
 export default {
-  name: 'pageFour'
+  name: 'pageFour',
+  components:{
+    NameTest
+  }
 }
 </script>
 
