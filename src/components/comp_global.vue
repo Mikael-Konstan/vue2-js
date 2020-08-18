@@ -1,6 +1,6 @@
 <template>
   <div class="comp_global">
-    test全局
+    test全局组件a
   </div>
 </template>
 <script>
