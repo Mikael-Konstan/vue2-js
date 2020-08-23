@@ -6,7 +6,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  outputDir: 'newtest',
+  outputDir: 'vuetest',
   publicPath: process.env.NODE_ENV === 'production' ? './' : '/',
   assetsDir: 'static',
   // lintOnSave: false,
