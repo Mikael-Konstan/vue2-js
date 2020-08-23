@@ -29,7 +29,6 @@ module.exports = {
     config.resolve.alias.set('@comp', path.join(__dirname, './src/components'))
   },
   configureWebpack: {
-    name: name,
     resolve: {
       alias: {
         vue$: 'vue/dist/vue.esm.js',
