@@ -17,7 +17,7 @@ module.exports = {
     // 设置代理
     proxy: {
       '/api': {
-        target: '',
+        target: 'https://localhost:8080',
         changeOrigin: true,
         pathRewrite: {
           '^/api': '',
