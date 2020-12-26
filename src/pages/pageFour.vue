@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <h1 class="tile">pageFour</h1>
-    <dl>
+    <dl class="dlStyle">
       <dt>
         组件名书写格式
       </dt>
@@ -43,18 +43,4 @@ export default {
 
 <!-- Add "scoped" attribute to ddmit CSS to this component only -->
 <style scoped lang="scss">
-dl{
-  text-align: left;
-  dt{
-    color: #ff4400;
-    font-weight: 600;
-    font-size: 26px;
-  }
-  dd{
-    padding-left: 18%;
-    color: #ff4400;
-    font-weight: 600;
-    font-size: 26px;  
-  }
-}
 </style>

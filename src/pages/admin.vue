@@ -1,18 +1,22 @@
 <template>
   <div class="main">
-    <el-container>
-      <el-header>
-        Header
-      </el-header>
-      <el-container style="height: calc(100% - 60px);">
-        <el-aside width="200px">
+      <el-container style="100%">
+        <el-aside>
           <el-menu class="el-menu-vertical-demo"
                    text-color="#fff"
                    background-color="#545c64"
+                   :collapse="isCollapse"
                    :router="true"
                    :default-active="activeMenu"
                    active-text-color="#ffd04b">
             <!-- :router index与路由绑定 :default-active 选中项 -->
+            <div index="#" class="authorLog">
+                <img src="@/assets/img/blueIcon.svg" alt="">
+                <span slot="title"
+                      :class="[isCollapse ? 'hide': '', 'navtitle', ]">
+                  Mikael.Konstan
+                </span>
+            </div>
             <div v-for="(route) in $router.options.routes"
                  :key="route.name">
               <el-submenu :index="route.path"
@@ -20,7 +24,7 @@
                 <template slot="title">
                   <i v-if="route.meta && route.meta.icon"
                      :class="route.meta.icon"></i>
-                  <span class="navtitle">{{ route.meta.title }}</span>
+                  <span slot="title" :class="[isCollapse ? 'hide': '', 'navtitle', ]">{{ route.meta.title }}</span>
                 </template>
                 <el-menu-item v-for="(child) in route.children"
                               :key="child.name"
@@ -44,11 +48,16 @@
             </div>
           </el-menu>
         </el-aside>
-        <el-main>
-          <router-view></router-view>
-        </el-main>
+        <el-container>
+          <el-header>
+            <i :class="iClass" @click="toggleFold" style="float: left;margin-top: 18px;"></i>
+            Header
+          </el-header>
+          <el-main>
+            <router-view></router-view>
+          </el-main>
+        </el-container>
       </el-container>
-    </el-container>
   </div>
 </template>
 
@@ -56,7 +65,10 @@
 export default {
   name: "admin",
   data () {
-    return {}
+    return {
+      iClass: 'el-icon-s-fold',
+      isCollapse: false,
+    }
   },
   computed: {
     activeMenu () {
@@ -68,11 +80,17 @@ export default {
       return path
     },
   },
+  methods: {
+    toggleFold () {
+      this.isCollapse = !this.isCollapse;
+      this.iClass = this.isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'
+    }
+  }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 .main{
   height: 100%;
 }
@@ -88,9 +106,30 @@ export default {
 }
 .el-aside {
   background: rgb(84, 92, 100);
+  width: auto !important;
 }
-.navtitle {
-  display: inline-block;
-  width: 60%;
+.el-menu{
+  border: none;
+}
+
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+}
+
+.authorLog {
+  background-color: #626262;
+  height: 60px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  img {
+    height: 28px;
+    width: 28px;
+  }
 }
 </style>

@@ -4,13 +4,13 @@ import router from './router'
 
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
-import './assets/base.css'
-import './assets/public.css'
-
 import Antd from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css/'
 import { Form } from 'ant-design-vue'
 import { Alert } from 'element-ui'
+import './assets/base.css'
+import './assets/public.css'
+import './assets/public.scss'
 
 import compGlobal from './compInit'
 // compGlobal.install(Vue)

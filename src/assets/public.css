@@ -4,3 +4,12 @@
     color: red;
     margin-bottom: 36px;
 }
+
+.navtitle {
+    display: inline-block;
+    width: 60%;
+}
+
+.hide{
+    display: none;
+}

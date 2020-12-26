@@ -1,8 +1,20 @@
 <template>
   <div class="hello">
     <h1 class="tile">pageFive</h1>
-    <p>utcTime  {{ utcTime }}</p>
-    <p>localTime  {{ localTime }}</p>
+    <ul class="ulStyle">
+      <li>
+        <p>now</p>
+        <p>{{ now }}</p>
+      </li>
+      <li>
+        <p>now => utcTime</p>
+        <p>{{ utcTime }}</p>
+      </li>
+      <li>
+        <p>utcTime => localTime</p>
+        <p>{{ localTime }}</p>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -10,34 +22,40 @@
 import moment from 'moment'
 export default {
   name: 'pageFive',
-  data() {
+  data () {
     return {
-      utcTime: '2020-12-09 23:40:40',
+      now: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
+      utcTime: this.timeToUtc({
+        time: this.now,
+        formatTime: 'YYYY-MM-DD HH:mm:ss',
+      }),
     }
   },
   computed: {
     localTime: function () {
-      return this.utcToLocalTime(this.utcTime, 'YYYY-MM-DD HH:mm:ss')
+      return this.utcToLocalTime({
+        utc: this.utcTime,
+        formatTime: 'YYYY-MM-DD HH:mm:ss',
+      })
     }
-  },
-  mounted() {
-
   },
   methods: {
-    // utc时间转换为本地时间
-    utcToLocalTime (utc, formatTime) {
-        if (utc) {
-            return moment.utc(utc)
-                .local()
-                .format(formatTime || 'DD/MM/YYYY HH:mm:ss')
-        } else {
-            return '--'
-        }
-    }
+    //time转换为utc time
+    timeToUtc ({ time, formatTime }) {
+      let utcSeconds = time ? Date.UTC(time) : Date.UTC(new Date());
+      return moment().utc(utcSeconds).format(formatTime || 'YYYY-MM-DD HH:mm:ss')
+    },
+    // utc time转换为local time
+    utcToLocalTime ({ utc, formatTime }) {
+      let utcDate = utc ? utc : new Date();
+      return moment.utc(utcDate)
+        .local()
+        .format(formatTime || 'DD/MM/YYYY HH:mm:ss')
+    },
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style scoped lang="scss">
 </style>
