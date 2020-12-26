@@ -1,48 +1,47 @@
 <template>
-  <div class="main"
-       style="height: 100%">
-    <el-container style="height: 100%">
-      <el-header style="height: 30px;">
+  <div class="main">
+    <el-container>
+      <el-header>
         Header
       </el-header>
-      <el-container>
+      <el-container style="height: calc(100% - 60px);">
         <el-aside width="200px">
           <el-menu class="el-menu-vertical-demo"
                    text-color="#fff"
                    background-color="#545c64"
                    :router="true"
-                   :default-active="refresh"
+                   :default-active="activeMenu"
                    active-text-color="#ffd04b">
-                   <!-- :router index与路由绑定 :default-active 选中项 -->
-            <el-menu-item index="/dashboard">
-              <i class="el-icon-s-home"></i>
-              <span slot="title" class="navtitle">dashboard</span>
-            </el-menu-item>
-            <el-submenu index='/Editor'>
-              <template slot="title">
-                <i class="el-icon-location"></i>
-                <span class="navtitle">Editor</span>
-              </template>
-              <el-menu-item index="/Editor">
-                <span slot="title" class="navtitle">wangEditor</span>
+            <!-- :router index与路由绑定 :default-active 选中项 -->
+            <div v-for="(route) in $router.options.routes"
+                 :key="route.name">
+              <el-submenu :index="route.path"
+                          v-if="route.children.length > 1">
+                <template slot="title">
+                  <i v-if="route.meta && route.meta.icon"
+                     :class="route.meta.icon"></i>
+                  <span class="navtitle">{{ route.meta.title }}</span>
+                </template>
+                <el-menu-item v-for="(child) in route.children"
+                              :key="child.name"
+                              :index="child.path">
+                  <span slot="title"
+                        class="navtitle">
+                    {{ child.meta.title }}
+                  </span>
+                </el-menu-item>
+              </el-submenu>
+              
+              <el-menu-item :index="route.redirect || route.path"
+                            v-else>
+                <i v-if="route.meta && route.meta.icon"
+                   :class="route.meta.icon"></i>
+                <span slot="title"
+                      class="navtitle">
+                  {{ route.meta.title }}
+                </span>
               </el-menu-item>
-            </el-submenu>
-            <el-menu-item index="/pageTwo">
-              <i class="el-icon-menu"></i>
-              <span slot="title" class="navtitle">pageTwo</span>
-            </el-menu-item>
-            <el-menu-item index="/pageThree">
-              <i class="el-icon-document"></i>
-              <span slot="title" class="navtitle">pageThree</span>
-            </el-menu-item>
-            <el-menu-item index="/pageFour">
-              <i class="el-icon-setting"></i>
-              <span slot="title" class="navtitle">pageFour</span>
-            </el-menu-item>
-            <el-menu-item index="/pageFive">
-              <i class="el-icon-setting"></i>
-              <span slot="title" class="navtitle">pageFive</span>
-            </el-menu-item>
+            </div>
           </el-menu>
         </el-aside>
         <el-main>
@@ -56,34 +55,42 @@
 <script>
 export default {
   name: "admin",
-  data() {
-    return {
-      refresh: this.$route.index,
-    }
+  data () {
+    return {}
   },
-  mounted() {
-    console.log(this.$route);
-    this.refresh = this.$route.name.split('/')[0];
+  computed: {
+    activeMenu () {
+      const { meta, path } = this.$route
+      // if set path, the sidebar will highlight the path you set
+      if (meta.activeMenu) {
+        return meta.activeMenu
+      }
+      return path
+    },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-a {
-  color: #42b983;
+.main{
+  height: 100%;
+}
+.el-container{
+  height: 100%;
 }
 .el-header {
   background: #666;
   color: antiquewhite;
-  line-height: 30px;
+  line-height: 60px;
+  font-size: 24px;
+  font-weight: 600;
 }
 .el-aside {
-  height: 100%;
   background: rgb(84, 92, 100);
 }
-.navtitle{
+.navtitle {
   display: inline-block;
-  width: 60%
+  width: 60%;
 }
 </style>

@@ -16,9 +16,13 @@ export const syncRoutes = [
         name: 'admin',
         component: layout,
         redirect: '/dashboard',
+        meta: {
+            icon: 'el-icon-s-home',
+            title: 'dashboard',
+        },
         children: [
             {
-                path: '/dashboard',
+                path: 'dashboard',
                 name: 'dashboard',
                 component: () => import('./../pages/dashboard.vue')
             },
@@ -32,12 +36,28 @@ export const asyncRoutes = [
         name: 'Editor',
         redirect: '/Editor/index',
         component: layout,
+        meta: {
+            icon: 'el-icon-location',
+            title: 'Editor',
+        },
         children:[
             {
-                path: 'index',
+                path: '/Editor/index',
                 name: 'Editor/index',
+                meta: {
+                    icon: 'el-icon-location',
+                    title: 'wangEditor',
+                },
                 component: () => import('@/pages/Editor.vue'),
-            }
+            },
+            {
+                path: '/Editor/two',
+                name: 'Editor/two',
+                meta: {
+                    title: 'editorTwo',
+                },
+                component: () => import('@/pages/Editor.vue'),
+            },
         ]
     },
     {
@@ -45,6 +65,10 @@ export const asyncRoutes = [
         name: 'pageTwo',
         redirect: '/pageTwo/index',
         component: layout,
+        meta: {
+            icon: 'el-icon-menu',
+            title: 'pageTwo',
+        },
         children:[
             {
                 path: 'index',
@@ -58,9 +82,13 @@ export const asyncRoutes = [
         name: 'pageThree',
         redirect: '/pageThree/index',
         component: layout,
+        meta: {
+            icon: 'el-icon-document',
+            title: 'pageThree',
+        },
         children:[
             {
-                path: 'index',
+                path: '/pageThree/index',
                 name: 'pageThree/index',
                 component: () => import('@/pages/pageThree.vue'),
             }
@@ -71,6 +99,10 @@ export const asyncRoutes = [
         name: 'pageFour',
         redirect: '/pageFour/index',
         component: layout,
+        meta: {
+            icon: 'el-icon-setting',
+            title: 'pageFour',
+        },
         children:[
             {
                 path: 'index',
@@ -84,6 +116,10 @@ export const asyncRoutes = [
         name: 'pageFive',
         redirect: '/pageFive/index',
         component: layout,
+        meta: {
+            icon: 'el-icon-setting',
+            title: 'pageFive',
+        },
         children:[
             {
                 path: 'index',
