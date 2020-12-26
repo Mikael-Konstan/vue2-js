@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="hello" ref="hello">
     <h1 class="tile">VUE</h1> 
     <h1>{{ msg }}</h1>
     <p>
@@ -7,6 +7,7 @@
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
+    <vueMounting :scrollDom="scrollDom"></vueMounting>
     <h3>Installed CLI Plugins</h3>
     <ul>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
@@ -33,13 +34,21 @@
 </template>
 
 <script>
+import vueMounting from '@/components/vueMounting.vue'
 export default {
   name: 'dashboard',
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      msg: "Welcome to Your Vue.js App",
+      scrollDom: '',
     }
-  }
+  },
+  components:{
+    vueMounting,
+  },
+  mounted() {
+    this.scrollDom = this.$refs.hello.parentNode;
+  },
 }
 </script>
 

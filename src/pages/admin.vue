@@ -84,7 +84,7 @@ export default {
     toggleFold () {
       this.isCollapse = !this.isCollapse;
       this.iClass = this.isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'
-    }
+    },
   }
 };
 </script>
