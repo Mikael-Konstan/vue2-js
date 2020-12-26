@@ -8,56 +8,95 @@ vueRouter.prototype.push = function push (location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
+import layout from '@/pages/admin.vue'
+
+export const syncRoutes = [
+    {
+        path: '/',
+        name: 'admin',
+        component: layout,
+        redirect: '/dashboard',
+        children: [
+            {
+                path: '/dashboard',
+                name: 'dashboard',
+                component: () => import('./../pages/dashboard.vue')
+            },
+        ]
+    },
+]
+
+export const asyncRoutes = [
+    {
+        path: '/Editor',
+        name: 'Editor',
+        redirect: '/Editor/index',
+        component: layout,
+        children:[
+            {
+                path: 'index',
+                name: 'Editor/index',
+                component: () => import('@/pages/Editor.vue'),
+            }
+        ]
+    },
+    {
+        path: '/pageTwo',
+        name: 'pageTwo',
+        redirect: '/pageTwo/index',
+        component: layout,
+        children:[
+            {
+                path: 'index',
+                name: 'pageTwo/index',
+                component: () => import('@/pages/pageTwo.vue'),
+            }
+        ]
+    },
+    {
+        path: '/pageThree',
+        name: 'pageThree',
+        redirect: '/pageThree/index',
+        component: layout,
+        children:[
+            {
+                path: 'index',
+                name: 'pageThree/index',
+                component: () => import('@/pages/pageThree.vue'),
+            }
+        ]
+    },
+    {
+        path: '/pageFour',
+        name: 'pageFour',
+        redirect: '/pageFour/index',
+        component: layout,
+        children:[
+            {
+                path: 'index',
+                name: 'pageFour/index',
+                component: () => import('@/pages/pageFour.vue'),
+            }
+        ]
+    },
+    {
+        path: '/pageFive',
+        name: 'pageFive',
+        redirect: '/pageFive/index',
+        component: layout,
+        children:[
+            {
+                path: 'index',
+                name: 'pageFive/index',
+                component: () => import('./../pages/pageFive.vue'),
+            }
+        ]
+    },
+]
+
 const router = new vueRouter({
     namespace: true,
-    routes: [
-        {
-            path: '/',
-            name: 'admin',
-            component: () => import('./../pages/admin.vue'),
-            redirect: '/dashboard',
-            children: [
-                {
-                    path: '/dashboard',
-                    name: 'dashboard',
-                    component: () => import('./../pages/dashboard.vue')
-                },
-                {
-                    path: '/Editor',
-                    name: 'Editor',
-                    component: () => import('./../pages/Editor.vue'),
-                },
-                {
-                    path: '/pageTwo',
-                    name: 'pageTwo',
-                    component: () => import('./../pages/pageTwo.vue'),
-                },
-                {
-                    path: '/pageThree',
-                    name: 'pageThree',
-                    component: () => import('./../pages/pageThree.vue'),
-                },
-                {
-                    path: '/pageFour',
-                    name: 'pageFour',
-                    component: () => import('./../pages/pageFour.vue'),
-                },
-            ]
-        },
-        {
-            path: '/pageFive',
-            name: 'pageFive',
-            redirect: '/pageFive/index',
-            component: ()=> import('./../pages/admin.vue'),
-            children:[
-                {
-                    path: 'index',
-                    name: 'pageFive/index',
-                    component: () => import('./../pages/pageFive.vue'),
-                }
-            ]
-        }
-    ]
+    routes: syncRoutes.concat(asyncRoutes)
 })
 
 export default router

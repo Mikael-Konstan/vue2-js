@@ -9,14 +9,14 @@
         <el-aside width="200px">
           <el-menu class="el-menu-vertical-demo"
                    text-color="#fff"
-                   background-color="rgb(84, 92, 100)"
+                   background-color="#545c64"
                    :router="true"
-                   :default-active="$route.path"
+                   :default-active="refresh"
                    active-text-color="#ffd04b">
-            <el-menu-item index="/dashboard"
-                          v-on:click="idx">
+                   <!-- :router index与路由绑定 :default-active 选中项 -->
+            <el-menu-item index="/dashboard">
               <i class="el-icon-s-home"></i>
-              <span slot="title" class="navtitle">index</span>
+              <span slot="title" class="navtitle">dashboard</span>
             </el-menu-item>
             <el-submenu index='/Editor'>
               <template slot="title">
@@ -24,7 +24,7 @@
                 <span class="navtitle">Editor</span>
               </template>
               <el-menu-item index="/Editor">
-                <span slot="title">wangEditor</span>
+                <span slot="title" class="navtitle">wangEditor</span>
               </el-menu-item>
             </el-submenu>
             <el-menu-item index="/pageTwo">
@@ -56,26 +56,15 @@
 <script>
 export default {
   name: "admin",
-  methods: {
-    idx () {
-      this.$router.push('/dashboard')
-    },
-    // Editor(){
-    //   this.$router.push('/Editor')
-    // },
-    // pageTwo() {
-    //   this.$router.push('/pageTwo')
-    // },
-    // pageThree(){
-    //   this.$router.push('/pageThree')
-    // },
-    // pageFour(){
-    //   this.$router.push('/pageFour')
-    // },
-    // pageFive(){
-    //   this.$router.push('/pageFive')
-    // }
-  }
+  data() {
+    return {
+      refresh: this.$route.index,
+    }
+  },
+  mounted() {
+    console.log(this.$route);
+    this.refresh = this.$route.name.split('/')[0];
+  },
 };
 </script>
 
