@@ -8,7 +8,7 @@ vueRouter.prototype.push = function push (location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
-import layout from '@/pages/admin.vue'
+import layout from '@/pages/layout/index.vue'
 
 export const syncRoutes = [
     {
@@ -24,7 +24,7 @@ export const syncRoutes = [
             {
                 path: 'dashboard',
                 name: 'dashboard',
-                component: () => import('./../pages/dashboard.vue')
+                component: () => import('./../pages/dashboard/index.vue')
             },
         ]
     },
@@ -48,7 +48,7 @@ export const asyncRoutes = [
                     icon: 'el-icon-location',
                     title: 'wangEditor',
                 },
-                component: () => import('@/pages/Editor.vue'),
+                component: () => import('@/pages/Editor/index.vue'),
             },
             {
                 path: '/Editor/two',
@@ -56,7 +56,7 @@ export const asyncRoutes = [
                 meta: {
                     title: 'editorTwo',
                 },
-                component: () => import('@/pages/Editor.vue'),
+                component: () => import('@/pages/Editor/index.vue'),
             },
         ]
     },
@@ -73,7 +73,7 @@ export const asyncRoutes = [
             {
                 path: 'index',
                 name: 'pageTwo/index',
-                component: () => import('@/pages/pageTwo.vue'),
+                component: () => import('@/pages/pageTwo/index.vue'),
             }
         ]
     },
@@ -90,7 +90,7 @@ export const asyncRoutes = [
             {
                 path: '/pageThree/index',
                 name: 'pageThree/index',
-                component: () => import('@/pages/pageThree.vue'),
+                component: () => import('@/pages/pageThree/index.vue'),
             }
         ]
     },
@@ -107,7 +107,7 @@ export const asyncRoutes = [
             {
                 path: 'index',
                 name: 'pageFour/index',
-                component: () => import('@/pages/pageFour.vue'),
+                component: () => import('@/pages/pageFour/index.vue'),
             }
         ]
     },
@@ -124,7 +124,7 @@ export const asyncRoutes = [
             {
                 path: 'index',
                 name: 'pageFive/index',
-                component: () => import('./../pages/pageFive.vue'),
+                component: () => import('@/pages/pageFive/index.vue'),
             }
         ]
     },

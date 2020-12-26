@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import NameTest from './../components/nameTest'
+import NameTest from '@/components/nameTest'
 export default {
   name: 'pageFour',
   data() {

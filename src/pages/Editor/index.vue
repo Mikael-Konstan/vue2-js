@@ -14,7 +14,7 @@
 
 <script>
 import axios from 'axios'
-import wangEditor from "./../components/wangEditor.vue";
+import wangEditor from "@/components/wangEditor.vue";
 export default {
   name: "Editor",
   data() {
