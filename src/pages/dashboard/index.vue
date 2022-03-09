@@ -7,6 +7,9 @@
       check out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
+    <p>
+      <a href="https://cn.vuejs.org/v2/guide/index.html" target="_blank" rel="noopener">Vue.js</a>.
+    </p>
     <vueMounting :scrollDom="scrollDom"></vueMounting>
     <h3>Installed CLI Plugins</h3>
     <ul>
